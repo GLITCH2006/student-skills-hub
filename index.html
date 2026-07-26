@@ -505,7 +505,22 @@ statsRow.innerHTML = `
   <div class="stat"><b>${categories.length}</b>مجالات مهارات</div>
   <div class="stat"><b>${resources.length}</b>مصدر منسّق</div>
   <div class="stat"><b>100%</b>مجاني بالكامل</div>
+  <div class="stat"><b id="visitor-count">···</b>زائر للموقع</div>
 `;
+
+// عداد الزوار (خدمة مجانية بدون تسجيل: countapi.mileshilliard.com)
+// المفتاح ده لازم يفضل ثابت وما يتغيرش، عشان العدّاد يفضل يعدّ صح من نفس النقطة
+const VISITOR_COUNTER_KEY = 'workshop-elmaharat-uwc-2026-visits';
+fetch(`https://countapi.mileshilliard.com/api/v1/hit/${VISITOR_COUNTER_KEY}`)
+  .then(res => res.json())
+  .then(data => {
+    const el = document.getElementById('visitor-count');
+    if (el && data && typeof data.value !== 'undefined') el.textContent = data.value;
+  })
+  .catch(() => {
+    const el = document.getElementById('visitor-count');
+    if (el) el.textContent = '—';
+  });
 
 // أزرار التصنيفات
 catNav.innerHTML = `<button class="cat-btn active" data-cat="all">الكل</button>` +
