@@ -326,280 +326,33 @@
     main{padding:40px 16px 70px;}
   }
 </style>
-</head>
+
 <body>
 
 <div class="hero">
   <div class="hero-inner">
     <span class="eyebrow mono">مصادر مجانية · منسّقة يدوياً</span>
     <h1>ابنِ مهاراتك <span>مجاناً</span>، خطوة بخطوة</h1>
-    <p>دليل مبسّط لأفضل المصادر المجانية على الإنترنت لتطوير المهارات الشخصية (Soft Skills) والمهارات الرقمية (Digital Skills) — من تواصل وقيادة، لبرمجة وتسويق رقمي. كل مصدر تم اختياره لأنه مجاني، وواضح، وسهل الفهم.</p>
+    <p>دليل مبسّط لأفضل المصادر المجانية على الإنترنت لتطوير المهارات الشخصية والرقمية، ولغات البرمجة المختلفة، والأمن السيبراني. كل مصدر تم اختياره لأنه مجاني، وواضح، وسهل الفهم.</p>
 
     <div class="search-panel">
       <span class="corner-label mono">// ابحث</span>
-      <input id="search-input" type="text" placeholder="دور على مهارة... مثلاً: تواصل، Excel، برمجة، تسويق">
+      <input id="search-input" type="text" placeholder="دور على مهارة... مثلاً: C++، أمن سيبراني، بايثون، تصميم">
     </div>
 
-    <div class="stats-row">
-      <div class="stat"><b>6</b>مجالات مهارات</div>
-      <div class="stat"><b>24</b>مصدر منسّق</div>
-      <div class="stat"><b>100%</b>مجاني بالكامل</div>
-    </div>
+    <div class="stats-row" id="stats-row"></div>
   </div>
 </div>
 
 <div class="cat-nav">
-  <div class="cat-scroll" id="cat-nav">
-    <button class="cat-btn active" data-cat="all">الكل</button>
-    <button class="cat-btn" data-cat="comm">تواصل وقيادة</button>
-    <button class="cat-btn" data-cat="think">تفكير وإنتاجية</button>
-    <button class="cat-btn" data-cat="digital">مهارات رقمية أساسية</button>
-    <button class="cat-btn" data-cat="code">برمجة وبيانات</button>
-    <button class="cat-btn" data-cat="marketing">تسويق رقمي</button>
-    <button class="cat-btn" data-cat="lang">لغات</button>
-  </div>
+  <div class="cat-scroll" id="cat-nav"></div>
 </div>
 
 <main>
-
-  <section class="section" data-section="comm">
-    <div class="section-head">
-      <h2>مهارات التواصل والقيادة</h2>
-      <span class="tag mono">COMM</span>
-    </div>
-    <p class="section-desc">مهارات هتفيدك في أي مقابلة شخصية أو عمل جماعي أو تقديم على منحة — إزاي تتكلم بثقة، تقنع، وتقود فريق.</p>
-    <div class="card-grid">
-
-      <div class="card" data-search="ted talks خطابة عامة تواصل تقديم" data-cat="comm">
-        <span class="card-source mono">TED Talks</span>
-        <h3>خطب ملهمة عن التواصل والقيادة</h3>
-        <p>مئات الخطب القصيرة المجانية بترجمة عربية، بتعلمك إزاي تقدّم أفكارك بوضوح وثقة أمام جمهور.</p>
-        <div class="card-tags"><span class="pill">فيديو</span><span class="pill">عربي/إنجليزي</span></div>
-        <a class="card-link" href="https://www.ted.com/talks" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="coursera communication skills leadership كورسات مجانية قيادة" data-cat="comm">
-        <span class="card-source mono">Coursera</span>
-        <h3>كورسات مجانية في التواصل والقيادة</h3>
-        <p>تقدر تتفرج على محاضرات كورسات جامعات عالمية مجاناً (Audit) عن مهارات التواصل الفعّال وبناء الفرق.</p>
-        <div class="card-tags"><span class="pill">كورس</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.coursera.org/courses?query=communication%20skills" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="hubspot academy sales communication customer" data-cat="comm">
-        <span class="card-source mono">HubSpot Academy</span>
-        <h3>مهارات التواصل مع العملاء والفرق</h3>
-        <p>كورسات مجانية قصيرة ومعتمدة (شهادات مجانية) عن التواصل الاحترافي وخدمة العملاء والعمل الجماعي.</p>
-        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://academy.hubspot.com/courses" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="toastmasters public speaking خطابة نادي" data-cat="comm">
-        <span class="card-source mono">Toastmasters</span>
-        <h3>موارد مجانية لتعلّم الخطابة</h3>
-        <p>مقالات وأدلة مجانية عن كيفية التغلب على رهبة التحدث أمام الناس، من أشهر منظمة عالمية للخطابة.</p>
-        <div class="card-tags"><span class="pill">مقالات</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.toastmasters.org/resources" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section" data-section="think">
-    <div class="section-head">
-      <h2>التفكير النقدي وإدارة الوقت</h2>
-      <span class="tag mono">THINK</span>
-    </div>
-    <p class="section-desc">مهارات تساعدك تنظّم وقتك، تحلل المشاكل، وتاخد قرارات أفضل في الدراسة والحياة.</p>
-    <div class="card-grid">
-
-      <div class="card" data-search="khan academy critical thinking study skills تفكير نقدي" data-cat="think">
-        <span class="card-source mono">Khan Academy</span>
-        <h3>مهارات الدراسة والتفكير النقدي</h3>
-        <p>دروس مجانية بالكامل (فيديو + تمارين) عن أساليب الدراسة الفعالة وحل المشكلات خطوة بخطوة.</p>
-        <div class="card-tags"><span class="pill">فيديو + تمارين</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.khanacademy.org/college-careers-more/college-admissions" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="edx critical thinking problem solving free course" data-cat="think">
-        <span class="card-source mono">edX</span>
-        <h3>كورسات تفكير نقدي وحل مشكلات</h3>
-        <p>كورسات من جامعات عالمية زي MIT وHarvard، متاحة للمشاهدة مجاناً بدون شهادة.</p>
-        <div class="card-tags"><span class="pill">كورس</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.edx.org/learn/critical-thinking-skills" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="notion templates time management إدارة وقت جدول" data-cat="think">
-        <span class="card-source mono">Notion</span>
-        <h3>قوالب جاهزة لتنظيم الوقت والمهام</h3>
-        <p>قوالب مجانية جاهزة الاستخدام لتنظيم جدولك الدراسي، مهامك اليومية، وأهدافك على المدى الطويل.</p>
-        <div class="card-tags"><span class="pill">أداة</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.notion.com/templates/category/education" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="rwaq رواق كورسات عربية تفكير مهارات" data-cat="think">
-        <span class="card-source mono">رواق (Rwaq)</span>
-        <h3>كورسات عربية مجانية بشهادات</h3>
-        <p>منصة عربية مجانية بالكامل فيها كورسات عن التفكير والتطوير الذاتي بشرح مبسّط باللهجة الفصحى.</p>
-        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">عربي</span></div>
-        <a class="card-link" href="https://www.rwaq.org/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section" data-section="digital">
-    <div class="section-head">
-      <h2>المهارات الرقمية الأساسية</h2>
-      <span class="tag mono">DIGITAL</span>
-    </div>
-    <p class="section-desc">أدوات هتحتاجها في أي شغل أو دراسة: أوفيس، تصميم، وأساسيات التعامل مع الإنترنت باحترافية.</p>
-    <div class="card-grid">
-
-      <div class="card" data-search="google digital garage مهارات رقمية اساسية مجاني" data-cat="digital">
-        <span class="card-source mono">Google Digital Garage</span>
-        <h3>أساسيات المهارات الرقمية</h3>
-        <p>كورسات مجانية من جوجل مع شهادات معتمدة، تغطي أساسيات العمل الرقمي والإنتاجية أونلاين.</p>
-        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://learndigital.withgoogle.com/digitalgarage" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="microsoft learn excel word office مايكروسوفت" data-cat="digital">
-        <span class="card-source mono">Microsoft Learn</span>
-        <h3>احتراف Excel وWord وPowerPoint</h3>
-        <p>دروس رسمية مجانية من مايكروسوفت لتعلم برامج الأوفيس من الصفر بشكل عملي ومنظم.</p>
-        <div class="card-tags"><span class="pill">دروس</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://learn.microsoft.com/en-us/training/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="canva design school تصميم جرافيك مجاني" data-cat="digital">
-        <span class="card-source mono">Canva Design School</span>
-        <h3>أساسيات التصميم الجرافيكي</h3>
-        <p>دروس مجانية وبسيطة عن مبادئ التصميم، الألوان، والخطوط — مفيدة جداً لعمل بروفايل أو بوستر احترافي.</p>
-        <div class="card-tags"><span class="pill">دروس + فيديو</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.canva.com/designschool/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="edraak ادراك منصة عربية مجانية مهارات رقمية" data-cat="digital">
-        <span class="card-source mono">إدراك (Edraak)</span>
-        <h3>كورسات عربية في المهارات الرقمية</h3>
-        <p>منصة عربية مجانية بالكامل، فيها مسارات مخصصة لمهارات القرن 21 والمهارات الرقمية للطلاب.</p>
-        <div class="card-tags"><span class="pill">كورس</span><span class="pill">عربي</span></div>
-        <a class="card-link" href="https://www.edraak.org/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section" data-section="code">
-    <div class="section-head">
-      <h2>البرمجة وتحليل البيانات</h2>
-      <span class="tag mono">CODE</span>
-    </div>
-    <p class="section-desc">لو حابب تدخل مجال التكنولوجيا، دي أشهر المصادر المجانية اللي بيبدأ بيها آلاف المبرمجين.</p>
-    <div class="card-grid">
-
-      <div class="card" data-search="freecodecamp برمجة مجاني كود javascript python" data-cat="code">
-        <span class="card-source mono">freeCodeCamp</span>
-        <h3>تعلّم البرمجة من الصفر مجاناً</h3>
-        <p>منهج كامل ومجاني 100% لتعلم تطوير المواقع، بايثون، وهياكل البيانات، مع شهادات مجانية.</p>
-        <div class="card-tags"><span class="pill">منهج كامل</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.freecodecamp.org/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="kaggle learn data analysis python تحليل بيانات" data-cat="code">
-        <span class="card-source mono">Kaggle Learn</span>
-        <h3>تحليل البيانات وتعلّم الآلة</h3>
-        <p>دروس تفاعلية قصيرة ومجانية عن Python وتحليل البيانات، بتطبيق عملي مباشر داخل المتصفح.</p>
-        <div class="card-tags"><span class="pill">دروس تفاعلية</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.kaggle.com/learn" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="w3schools html css javascript تعلم برمجة مواقع" data-cat="code">
-        <span class="card-source mono">W3Schools</span>
-        <h3>مرجع سريع لتعلّم HTML وCSS وJS</h3>
-        <p>مرجع مجاني وسهل لأي حد عايز يفهم أساسيات بناء المواقع خطوة بخطوة مع أمثلة تفاعلية.</p>
-        <div class="card-tags"><span class="pill">مرجع + تجربة مباشرة</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.w3schools.com/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section" data-section="marketing">
-    <div class="section-head">
-      <h2>التسويق الرقمي ووسائل التواصل</h2>
-      <span class="tag mono">MARKETING</span>
-    </div>
-    <p class="section-desc">مهارات مطلوبة جداً في سوق الشغل: إزاي تسوّق لفكرة أو مشروع أو نفسك على السوشيال ميديا.</p>
-    <div class="card-grid">
-
-      <div class="card" data-search="hubspot marketing digital تسويق رقمي شهادة مجانية" data-cat="marketing">
-        <span class="card-source mono">HubSpot Academy</span>
-        <h3>شهادة مجانية في التسويق الرقمي</h3>
-        <p>كورس شامل ومجاني عن أساسيات التسويق الرقمي وصناعة المحتوى، بشهادة معتمدة عند الانتهاء.</p>
-        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://academy.hubspot.com/courses/digital-marketing" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="meta blueprint facebook instagram ads تسويق" data-cat="marketing">
-        <span class="card-source mono">Meta Blueprint</span>
-        <h3>أساسيات الإعلانات على فيسبوك وإنستجرام</h3>
-        <p>كورسات رسمية مجانية من ميتا لفهم كيفية بناء حملات تسويقية بسيطة على السوشيال ميديا.</p>
-        <div class="card-tags"><span class="pill">كورس</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.facebookblueprint.com/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="google digital garage marketing تسويق جوجل" data-cat="marketing">
-        <span class="card-source mono">Google Digital Garage</span>
-        <h3>أساسيات التسويق عبر الإنترنت</h3>
-        <p>وحدة كاملة مجانية عن التسويق الرقمي، السيو، ومحركات البحث بشهادة معتمدة من جوجل.</p>
-        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section" data-section="lang">
-    <div class="section-head">
-      <h2>اللغات</h2>
-      <span class="tag mono">LANG</span>
-    </div>
-    <p class="section-desc">اللغة نفسها مهارة أساسية لأي منحة أو فرصة عمل — دي أفضل المصادر المجانية لتقويتها.</p>
-    <div class="card-grid">
-
-      <div class="card" data-search="duolingo تعلم لغة انجليزي مجاني تطبيق" data-cat="lang">
-        <span class="card-source mono">Duolingo</span>
-        <h3>تعلّم لغة جديدة بشكل يومي وممتع</h3>
-        <p>تطبيق مجاني بالكامل بيعلمك أي لغة بأسلوب لعبة تفاعلية، مناسب جداً للمبتدئين.</p>
-        <div class="card-tags"><span class="pill">تطبيق</span><span class="pill">متعدد اللغات</span></div>
-        <a class="card-link" href="https://www.duolingo.com/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="bbc learning english تعلم انجليزي مجاني" data-cat="lang">
-        <span class="card-source mono">BBC Learning English</span>
-        <h3>تقوية اللغة الإنجليزية للمحادثة والكتابة</h3>
-        <p>دروس فيديو وصوت مجانية من هيئة الإذاعة البريطانية، بمستويات مختلفة من المبتدئ للمتقدم.</p>
-        <div class="card-tags"><span class="pill">فيديو + صوت</span><span class="pill">إنجليزي</span></div>
-        <a class="card-link" href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-      <div class="card" data-search="almentor المنتور دورات عربية تطوير ذات" data-cat="lang">
-        <span class="card-source mono">Nafham (نفهم)</span>
-        <h3>شرح مبسّط لمناهج ومهارات باللغة العربية</h3>
-        <p>منصة عربية مجانية موجهة للطلاب، بفيديوهات شرح مبسطة بأسلوب سهل وقريب من الطالب العربي.</p>
-        <div class="card-tags"><span class="pill">فيديو</span><span class="pill">عربي</span></div>
-        <a class="card-link" href="https://www.nafham.com/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
-      </div>
-
-    </div>
-  </section>
-
+  <div id="main-content"></div>
   <div class="empty-state" id="empty-state">
     <p>مفيش نتايج مطابقة. جرّب كلمة تانية أو دوس على "الكل".</p>
   </div>
-
 </main>
 
 <footer>
@@ -607,42 +360,218 @@
 </footer>
 
 <script>
-  const catButtons = document.querySelectorAll('.cat-btn');
-  const cards = document.querySelectorAll('.card');
-  const sections = document.querySelectorAll('.section');
-  const searchInput = document.getElementById('search-input');
-  const emptyState = document.getElementById('empty-state');
-  let activeCat = 'all';
+/* ============ البيانات ============ */
+/* لإضافة مصدر جديد: زوّد عنصر في مصفوفة resources تحت. عشان تضيف مجال جديد، زوّد عنصر في categories. */
 
-  function applyFilters(){
-    const query = searchInput.value.trim().toLowerCase();
-    let anyVisible = false;
+const categories = [
+  { id:'comm',     name:'تواصل وقيادة',             tag:'COMM',     desc:'مهارات هتفيدك في أي مقابلة شخصية أو عمل جماعي أو تقديم على منحة.' },
+  { id:'think',    name:'تفكير وإنتاجية',            tag:'THINK',    desc:'تنظيم الوقت، حل المشكلات، واتخاذ قرارات أفضل في الدراسة والحياة.' },
+  { id:'digital',  name:'مهارات رقمية أساسية',       tag:'DIGITAL',  desc:'أوفيس، تصميم، وأساسيات التعامل مع الإنترنت باحترافية.' },
+  { id:'basics',   name:'أساسيات البرمجة',           tag:'BASICS',   desc:'منطق البرمجة والخوارزميات، من غير ما تتقيد بلغة معينة.' },
+  { id:'webdev',   name:'تطوير الويب (HTML/CSS/JS)', tag:'WEBDEV',   desc:'بناء المواقع من الصفر: هيكلة، تنسيق، وتفاعل.' },
+  { id:'python',   name:'بايثون Python',             tag:'PYTHON',   desc:'من أكثر اللغات طلباً في سوق الشغل وأسهلها للمبتدئين.' },
+  { id:'cpp',      name:'++C',                       tag:'C++',      desc:'لغة أساسية في الأنظمة، الألعاب، والمسابقات البرمجية.' },
+  { id:'java',     name:'Java',                      tag:'JAVA',     desc:'لغة منتشرة في تطبيقات الأندرويد والأنظمة الكبيرة.' },
+  { id:'csharp',   name:'#C',                        tag:'C#',       desc:'لغة مايكروسوفت لتطوير الألعاب (Unity) والتطبيقات.' },
+  { id:'go',       name:'Go',                        tag:'GO',       desc:'لغة حديثة وسريعة، منتشرة في أنظمة السيرفرات الكبيرة.' },
+  { id:'rust',     name:'Rust',                      tag:'RUST',     desc:'لغة حديثة معروفة بالأمان والأداء العالي.' },
+  { id:'php',      name:'PHP',                       tag:'PHP',      desc:'من أشهر لغات تطوير الباك-إند لمواقع الإنترنت.' },
+  { id:'sql',      name:'قواعد البيانات و SQL',       tag:'SQL',      desc:'إزاي تخزن وتستعلم عن البيانات — مهارة مطلوبة في أي وظيفة تقنية.' },
+  { id:'mobile',   name:'تطوير تطبيقات الموبايل',    tag:'MOBILE',   desc:'بناء تطبيقات أندرويد وآيفون من الصفر.' },
+  { id:'data',     name:'تحليل بيانات وذكاء اصطناعي', tag:'DATA/AI',  desc:'فهم البيانات، وأساسيات تعلّم الآلة والذكاء الاصطناعي.' },
+  { id:'security', name:'الأمن السيبراني',            tag:'SECURITY', desc:'حماية الأنظمة، اختبار الاختراق الأخلاقي، وأساسيات الأمان الرقمي.' },
+  { id:'marketing',name:'تسويق رقمي',                tag:'MARKETING',desc:'إزاي تسوّق لفكرة أو مشروع أو نفسك على السوشيال ميديا.' },
+  { id:'lang',     name:'لغات',                       tag:'LANG',     desc:'اللغة نفسها مهارة أساسية لأي منحة أو فرصة عمل.' },
+];
 
-    sections.forEach(section => {
-      let sectionHasVisible = false;
-      section.querySelectorAll('.card').forEach(card => {
-        const matchesCat = activeCat === 'all' || card.dataset.cat === activeCat;
-        const matchesSearch = query === '' || card.dataset.search.toLowerCase().includes(query) || card.querySelector('h3').textContent.toLowerCase().includes(query);
-        const visible = matchesCat && matchesSearch;
-        card.style.display = visible ? '' : 'none';
-        if (visible){ sectionHasVisible = true; anyVisible = true; }
-      });
-      section.style.display = sectionHasVisible ? '' : 'none';
+const resources = [
+  // ===== تواصل وقيادة =====
+  { cat:'comm', source:'TED Talks', title:'خطب ملهمة عن التواصل والقيادة', desc:'مئات الخطب القصيرة المجانية بترجمة عربية، بتعلمك إزاي تقدّم أفكارك بوضوح وثقة أمام جمهور.', tags:['فيديو','عربي/إنجليزي'], url:'https://www.ted.com/talks' },
+  { cat:'comm', source:'Coursera', title:'كورسات مجانية في التواصل والقيادة', desc:'تقدر تتفرج على محاضرات كورسات جامعات عالمية مجاناً (Audit) عن مهارات التواصل الفعّال وبناء الفرق.', tags:['كورس','إنجليزي'], url:'https://www.coursera.org/courses?query=communication%20skills' },
+  { cat:'comm', source:'HubSpot Academy', title:'مهارات التواصل مع العملاء والفرق', desc:'كورسات مجانية قصيرة ومعتمدة (شهادات مجانية) عن التواصل الاحترافي وخدمة العملاء والعمل الجماعي.', tags:['كورس + شهادة','إنجليزي'], url:'https://academy.hubspot.com/courses' },
+  { cat:'comm', source:'Toastmasters', title:'موارد مجانية لتعلّم الخطابة', desc:'مقالات وأدلة مجانية عن كيفية التغلب على رهبة التحدث أمام الناس، من أشهر منظمة عالمية للخطابة.', tags:['مقالات','إنجليزي'], url:'https://www.toastmasters.org/resources' },
+
+  // ===== تفكير وإنتاجية =====
+  { cat:'think', source:'Khan Academy', title:'مهارات الدراسة والتفكير النقدي', desc:'دروس مجانية بالكامل (فيديو + تمارين) عن أساليب الدراسة الفعالة وحل المشكلات خطوة بخطوة.', tags:['فيديو + تمارين','إنجليزي'], url:'https://www.khanacademy.org/college-careers-more/college-admissions' },
+  { cat:'think', source:'edX', title:'كورسات تفكير نقدي وحل مشكلات', desc:'كورسات من جامعات عالمية زي MIT وHarvard، متاحة للمشاهدة مجاناً بدون شهادة.', tags:['كورس','إنجليزي'], url:'https://www.edx.org/learn/critical-thinking-skills' },
+  { cat:'think', source:'Notion', title:'قوالب جاهزة لتنظيم الوقت والمهام', desc:'قوالب مجانية جاهزة الاستخدام لتنظيم جدولك الدراسي، مهامك اليومية، وأهدافك على المدى الطويل.', tags:['أداة','إنجليزي'], url:'https://www.notion.com/templates/category/education' },
+  { cat:'think', source:'رواق (Rwaq)', title:'كورسات عربية مجانية بشهادات', desc:'منصة عربية مجانية بالكامل فيها كورسات عن التفكير والتطوير الذاتي بشرح مبسّط باللغة العربية الفصحى.', tags:['كورس + شهادة','عربي'], url:'https://www.rwaq.org/' },
+
+  // ===== مهارات رقمية أساسية =====
+  { cat:'digital', source:'Google Digital Garage', title:'أساسيات المهارات الرقمية', desc:'كورسات مجانية من جوجل مع شهادات معتمدة، تغطي أساسيات العمل الرقمي والإنتاجية أونلاين.', tags:['كورس + شهادة','إنجليزي'], url:'https://learndigital.withgoogle.com/digitalgarage' },
+  { cat:'digital', source:'Microsoft Learn', title:'احتراف Excel وWord وPowerPoint', desc:'دروس رسمية مجانية من مايكروسوفت لتعلم برامج الأوفيس من الصفر بشكل عملي ومنظم.', tags:['دروس','إنجليزي'], url:'https://learn.microsoft.com/en-us/training/' },
+  { cat:'digital', source:'Canva Design School', title:'أساسيات التصميم الجرافيكي', desc:'دروس مجانية وبسيطة عن مبادئ التصميم، الألوان، والخطوط — مفيدة جداً لعمل بروفايل أو بوستر احترافي.', tags:['دروس + فيديو','إنجليزي'], url:'https://www.canva.com/designschool/' },
+  { cat:'digital', source:'إدراك (Edraak)', title:'كورسات عربية في المهارات الرقمية', desc:'منصة عربية مجانية بالكامل، فيها مسارات مخصصة لمهارات القرن 21 والمهارات الرقمية للطلاب.', tags:['كورس','عربي'], url:'https://www.edraak.org/' },
+
+  // ===== أساسيات البرمجة =====
+  { cat:'basics', source:'freeCodeCamp', title:'تعلّم البرمجة من الصفر مجاناً', desc:'منهج كامل ومجاني 100% لتعلم تطوير المواقع، الخوارزميات، وهياكل البيانات، مع شهادات مجانية.', tags:['منهج كامل','إنجليزي'], url:'https://www.freecodecamp.org/' },
+  { cat:'basics', source:'CS50 (Harvard)', title:'أشهر مقدمة مجانية في علوم الحاسب', desc:'كورس هارفارد الشهير CS50، متاح بالكامل مجاناً بالفيديو، ويغطي أساسيات البرمجة والتفكير الحاسوبي.', tags:['كورس جامعي','إنجليزي'], url:'https://cs50.harvard.edu/x/' },
+  { cat:'basics', source:'The Odin Project', title:'مسار متكامل ومجاني لتطوير الويب', desc:'منهج مجاني بالكامل قائم على المشاريع العملية، من أساسيات البرمجة لبناء تطبيقات ويب كاملة.', tags:['منهج كامل','إنجليزي'], url:'https://www.theodinproject.com/' },
+  { cat:'basics', source:'Exercism', title:'تمارين برمجية مع مراجعة من مبرمجين حقيقيين', desc:'منصة مجانية بتديك تمارين برمجية بلغات مختلفة، ومبرمجين متطوعين بيراجعوا حلولك ويديوك ملاحظات.', tags:['تمارين','إنجليزي'], url:'https://exercism.org/' },
+  { cat:'basics', source:'HackerRank', title:'تحديات برمجية لتقوية مهاراتك', desc:'آلاف التمارين البرمجية المجانية بمستويات مختلفة، ومفيدة جداً للتحضير لمقابلات الشغل.', tags:['تمارين'], url:'https://www.hackerrank.com/' },
+  { cat:'basics', source:'LeetCode', title:'تمارين خوارزميات لمقابلات الشغل', desc:'منصة مجانية (بنسختها الأساسية) لحل مسائل خوارزميات بمستويات صعوبة متدرجة.', tags:['تمارين'], url:'https://leetcode.com/' },
+
+  // ===== تطوير الويب =====
+  { cat:'webdev', source:'javascript.info', title:'أعمق شرح مجاني للجافاسكريبت', desc:'دليل مجاني وشامل لتعلم JavaScript من الصفر للاحتراف، بأمثلة وتمارين تفاعلية.', tags:['دروس مكتوبة','إنجليزي'], url:'https://javascript.info/' },
+  { cat:'webdev', source:'MDN Web Docs', title:'المرجع الرسمي لـ HTML وCSS وJavaScript', desc:'مرجع Mozilla الرسمي، أدق وأشمل مصدر لفهم تفاصيل لغات الويب مع أمثلة عملية.', tags:['مرجع','إنجليزي'], url:'https://developer.mozilla.org/' },
+  { cat:'webdev', source:'W3Schools', title:'مرجع سريع لتعلّم HTML وCSS وJS', desc:'مرجع مجاني وسهل لأي حد عايز يفهم أساسيات بناء المواقع خطوة بخطوة مع أمثلة تفاعلية.', tags:['مرجع + تجربة مباشرة','إنجليزي'], url:'https://www.w3schools.com/' },
+  { cat:'webdev', source:'freeCodeCamp', title:'شهادة Responsive Web Design المجانية', desc:'شهادة مجانية معتمدة من freeCodeCamp في تصميم صفحات ويب متجاوبة باستخدام HTML وCSS.', tags:['كورس + شهادة','إنجليزي'], url:'https://www.freecodecamp.org/learn/2022/responsive-web-design/' },
+
+  // ===== بايثون =====
+  { cat:'python', source:'Real Python', title:'دروس عملية ومتدرجة في بايثون', desc:'مئات المقالات والدروس المجانية اللي بتشرح بايثون بأمثلة عملية من المبتدئ للمحترف.', tags:['دروس مكتوبة','إنجليزي'], url:'https://realpython.com/' },
+  { cat:'python', source:'Python.org', title:'الدليل الرسمي التعليمي لبايثون', desc:'التوثيق الرسمي للغة بايثون، فيه Tutorial كامل مجاني موجه للمبتدئين.', tags:['مرجع رسمي','إنجليزي'], url:'https://docs.python.org/3/tutorial/' },
+  { cat:'python', source:'Automate the Boring Stuff', title:'كتاب مجاني لأتمتة المهام ببايثون', desc:'كتاب مجاني بالكامل أونلاين، بيعلمك بايثون عن طريق مشاريع عملية لأتمتة مهام يومية.', tags:['كتاب مجاني','إنجليزي'], url:'https://automatetheboringstuff.com/' },
+  { cat:'python', source:'CS50P (Harvard)', title:'مقدمة هارفارد المجانية في بايثون', desc:'كورس متخصص بالكامل في بايثون من نفس فريق CS50، متاح مجاناً بالفيديو والتمارين.', tags:['كورس جامعي','إنجليزي'], url:'https://cs50.harvard.edu/python/' },
+  { cat:'python', source:"Google's Python Class", title:'كورس جوجل التمهيدي لبايثون', desc:'كورس مجاني من جوجل نفسها لتعليم أساسيات بايثون بالفيديو والتمارين المكتوبة.', tags:['كورس','إنجليزي'], url:'https://developers.google.com/edu/python' },
+
+  // ===== C++ =====
+  { cat:'cpp', source:'LearnCpp.com', title:'أشمل دليل مجاني لتعلّم ++C', desc:'دليل مجاني ومنظم جداً بيغطي ++C من الأساسيات لمواضيع متقدمة زي الذاكرة والـ pointers.', tags:['دروس مكتوبة','إنجليزي'], url:'https://www.learncpp.com/' },
+  { cat:'cpp', source:'cppreference.com', title:'المرجع التقني الشامل للغة ++C', desc:'المرجع الأكثر دقة واستخداماً من المبرمجين المحترفين لتفاصيل مكتبات وقواعد ++C.', tags:['مرجع','إنجليزي'], url:'https://en.cppreference.com/' },
+  { cat:'cpp', source:'GeeksforGeeks', title:'دروس وتمارين ++C بالأمثلة', desc:'شرح مبسّط لمفاهيم ++C مع أمثلة كود جاهزة للتجربة، ومفيد جداً كمرجع سريع.', tags:['دروس + تمارين','إنجليزي'], url:'https://www.geeksforgeeks.org/c-plus-plus-programming-language/' },
+
+  // ===== Java =====
+  { cat:'java', source:'Oracle Java Tutorials', title:'الدليل الرسمي لتعلّم Java', desc:'التوثيق الرسمي من Oracle (الشركة المالكة للغة)، فيه شرح متدرج من الأساسيات.', tags:['مرجع رسمي','إنجليزي'], url:'https://docs.oracle.com/javase/tutorial/' },
+  { cat:'java', source:'W3Schools', title:'مرجع سريع لتعلّم Java', desc:'دروس مبسطة خطوة بخطوة مع أمثلة تفاعلية تقدر تجربها فوراً في المتصفح.', tags:['مرجع + تجربة مباشرة','إنجليزي'], url:'https://www.w3schools.com/java/' },
+  { cat:'java', source:'GeeksforGeeks', title:'دروس Java من الأساسيات للمتقدم', desc:'شرح مفصل لمفاهيم البرمجة الكائنية في Java مع أمثلة وتمارين تطبيقية.', tags:['دروس + تمارين','إنجليزي'], url:'https://www.geeksforgeeks.org/java/' },
+
+  // ===== C# =====
+  { cat:'csharp', source:'Microsoft Learn', title:'الدليل الرسمي لتعلّم #C', desc:'مسار تعليمي رسمي ومجاني بالكامل من مايكروسوفت، من الأساسيات لبناء تطبيقات حقيقية.', tags:['مسار تعليمي رسمي','إنجليزي'], url:'https://learn.microsoft.com/en-us/dotnet/csharp/' },
+  { cat:'csharp', source:'W3Schools', title:'مرجع سريع لتعلّم #C', desc:'دروس مبسطة ومنظمة عن أساسيات #C مع أمثلة تفاعلية.', tags:['مرجع + تجربة مباشرة','إنجليزي'], url:'https://www.w3schools.com/cs/' },
+
+  // ===== Go =====
+  { cat:'go', source:'A Tour of Go', title:'الجولة التعليمية الرسمية للغة Go', desc:'دليل تفاعلي رسمي من فريق Go بيخليك تكتب وتجرب الكود مباشرة في المتصفح وانت بتتعلم.', tags:['دليل تفاعلي رسمي','إنجليزي'], url:'https://go.dev/tour/' },
+  { cat:'go', source:'Go by Example', title:'تعلّم Go عن طريق أمثلة عملية', desc:'مجموعة أمثلة كود قصيرة وواضحة بتشرح كل مفهوم في لغة Go بشكل عملي مباشر.', tags:['أمثلة كود','إنجليزي'], url:'https://gobyexample.com/' },
+
+  // ===== Rust =====
+  { cat:'rust', source:'The Rust Programming Language', title:'الكتاب الرسمي المجاني لتعلّم Rust', desc:'الكتاب الرسمي الشامل من فريق Rust، متاح مجاناً بالكامل أونلاين، ومرجع أساسي لأي متعلّم.', tags:['كتاب رسمي','إنجليزي'], url:'https://doc.rust-lang.org/book/' },
+  { cat:'rust', source:'Rustlings', title:'تمارين صغيرة تفاعلية لتعلّم Rust', desc:'مجموعة تمارين برمجية صغيرة ومجانية على GitHub، مصممة لتعليمك Rust خطوة بخطوة بالممارسة.', tags:['تمارين'], url:'https://github.com/rust-lang/rustlings' },
+
+  // ===== PHP =====
+  { cat:'php', source:'PHP Manual', title:'الدليل الرسمي الكامل للغة PHP', desc:'التوثيق الرسمي للغة PHP، شامل ومجاني، ومترجم جزئياً لعدة لغات منها العربية.', tags:['مرجع رسمي'], url:'https://www.php.net/manual/' },
+  { cat:'php', source:'W3Schools', title:'مرجع سريع لتعلّم PHP', desc:'دروس مبسطة لتعلم PHP خطوة بخطوة مع أمثلة تفاعلية لبناء صفحات ديناميكية.', tags:['مرجع + تجربة مباشرة','إنجليزي'], url:'https://www.w3schools.com/php/' },
+
+  // ===== SQL / قواعد البيانات =====
+  { cat:'sql', source:'SQLZoo', title:'تعلّم SQL بالتمرين المباشر', desc:'منصة مجانية بتخليك تكتب استعلامات SQL حقيقية وتشوف النتيجة فوراً، من الأساسيات للمتقدم.', tags:['تمارين تفاعلية','إنجليزي'], url:'https://sqlzoo.net/' },
+  { cat:'sql', source:'Mode SQL Tutorial', title:'دليل عملي شامل لتعلّم SQL', desc:'دليل مجاني ومنظم لتعلم SQL موجه لمهارات تحليل البيانات في الشركات الحقيقية.', tags:['دروس مكتوبة','إنجليزي'], url:'https://mode.com/sql-tutorial/' },
+  { cat:'sql', source:'W3Schools', title:'مرجع سريع لأوامر SQL', desc:'شرح مبسط لكل أوامر SQL الأساسية مع إمكانية تجربة الكود مباشرة في المتصفح.', tags:['مرجع + تجربة مباشرة','إنجليزي'], url:'https://www.w3schools.com/sql/' },
+
+  // ===== تطوير تطبيقات الموبايل =====
+  { cat:'mobile', source:'Android Developers', title:'المسار الرسمي لتعلّم تطوير تطبيقات أندرويد', desc:'كورسات ومسارات تعليمية رسمية ومجانية من جوجل لتعلم بناء تطبيقات أندرويد من الصفر.', tags:['مسار تعليمي رسمي','إنجليزي'], url:'https://developer.android.com/courses' },
+  { cat:'mobile', source:'Swift.org', title:'التوثيق الرسمي للغة Swift (تطبيقات آبل)', desc:'الدليل الرسمي المجاني لتعلم لغة Swift المستخدمة في بناء تطبيقات آيفون وآيباد.', tags:['مرجع رسمي','إنجليزي'], url:'https://www.swift.org/documentation/' },
+  { cat:'mobile', source:'Kotlin', title:'التوثيق الرسمي للغة Kotlin (تطبيقات أندرويد)', desc:'الدليل الرسمي المجاني للغة Kotlin، اللغة الأساسية الحديثة لتطوير تطبيقات أندرويد.', tags:['مرجع رسمي','إنجليزي'], url:'https://kotlinlang.org/docs/home.html' },
+  { cat:'mobile', source:'React Native', title:'بناء تطبيقات موبايل بلغة JavaScript', desc:'التوثيق الرسمي المجاني لـ React Native، يخليك تبني تطبيق أندرويد وآيفون بكود واحد.', tags:['مرجع رسمي','إنجليزي'], url:'https://reactnative.dev/docs/getting-started' },
+
+  // ===== تحليل بيانات وذكاء اصطناعي =====
+  { cat:'data', source:'Kaggle Learn', title:'تحليل البيانات وتعلّم الآلة بالتطبيق المباشر', desc:'دروس تفاعلية قصيرة ومجانية عن Python وتحليل البيانات، بتطبيق عملي مباشر داخل المتصفح.', tags:['دروس تفاعلية','إنجليزي'], url:'https://www.kaggle.com/learn' },
+  { cat:'data', source:'Google Machine Learning Crash Course', title:'مقدمة جوجل السريعة والمجانية للذكاء الاصطناعي', desc:'كورس مجاني من جوجل بيشرح أساسيات تعلّم الآلة بالفيديو والتمارين التطبيقية.', tags:['كورس','إنجليزي'], url:'https://developers.google.com/machine-learning/crash-course' },
+  { cat:'data', source:'fast.ai', title:'كورس عملي في التعلّم العميق (Deep Learning)', desc:'كورس مجاني بالكامل بيركز على التطبيق العملي المباشر لبناء نماذج ذكاء اصطناعي حقيقية.', tags:['كورس','إنجليزي'], url:'https://course.fast.ai/' },
+  { cat:'data', source:'Andrew Ng - Machine Learning', title:'أشهر كورس تمهيدي في تعلّم الآلة', desc:'كورس ستانفورد الشهير على Coursera، متاح للمشاهدة مجاناً (Audit) بدون شهادة.', tags:['كورس جامعي','إنجليزي'], url:'https://www.coursera.org/learn/machine-learning' },
+
+  // ===== الأمن السيبراني =====
+  { cat:'security', source:'TryHackMe', title:'تعلّم الأمن السيبراني بالتطبيق العملي', desc:'منصة فيها تحديات وغرف تدريبية مجانية لتعلم اختبار الاختراق الأخلاقي خطوة بخطوة.', tags:['تدريب عملي','إنجليزي'], url:'https://tryhackme.com/' },
+  { cat:'security', source:'PortSwigger Web Security Academy', title:'أكاديمية مجانية بالكامل لأمن تطبيقات الويب', desc:'من أشهر المصادر المجانية عالمياً لتعلم ثغرات الويب وطرق استغلالها وحمايتها بشكل أخلاقي.', tags:['تدريب عملي مجاني بالكامل','إنجليزي'], url:'https://portswigger.net/web-security' },
+  { cat:'security', source:'OverTheWire', title:'ألغاز وتحديات أمنية عملية (Wargames)', desc:'سلسلة تحديات مجانية تعلمك أساسيات أمن الأنظمة والشبكات عن طريق حل ألغاز عملية تدريجية الصعوبة.', tags:['تحديات عملية','إنجليزي'], url:'https://overthewire.org/wargames/' },
+  { cat:'security', source:'OWASP', title:'المرجع العالمي لأمن تطبيقات الويب', desc:'منظمة مفتوحة المصدر بتنشر أدلة ومعايير مجانية لأخطر الثغرات الأمنية في المواقع (OWASP Top 10).', tags:['مرجع','إنجليزي'], url:'https://owasp.org/' },
+  { cat:'security', source:'Cisco Networking Academy', title:'مقدمة مجانية معتمدة في الأمن السيبراني', desc:'كورس "Introduction to Cybersecurity" مجاني بالكامل من سيسكو مع شهادة إتمام.', tags:['كورس + شهادة','إنجليزي'], url:'https://www.netacad.com/courses/introduction-to-cybersecurity' },
+  { cat:'security', source:'Professor Messer', title:'فيديوهات مجانية للتحضير لشهادة Security+', desc:'مئات الفيديوهات المجانية اللي بتغطي مادة شهادة CompTIA Security+ بشرح واضح ومبسّط.', tags:['فيديو','إنجليزي'], url:'https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/' },
+  { cat:'security', source:'Google Cybersecurity Certificate', title:'شهادة جوجل المهنية في الأمن السيبراني', desc:'برنامج كامل من جوجل على Coursera، متاح للمشاهدة مجاناً (Audit)، يغطي أساسيات الدخول لمجال الأمن السيبراني.', tags:['كورس جامعي/مهني','إنجليزي'], url:'https://www.coursera.org/professional-certificates/google-cybersecurity' },
+
+  // ===== تسويق رقمي =====
+  { cat:'marketing', source:'HubSpot Academy', title:'شهادة مجانية في التسويق الرقمي', desc:'كورس شامل ومجاني عن أساسيات التسويق الرقمي وصناعة المحتوى، بشهادة معتمدة عند الانتهاء.', tags:['كورس + شهادة','إنجليزي'], url:'https://academy.hubspot.com/courses/digital-marketing' },
+  { cat:'marketing', source:'Meta Blueprint', title:'أساسيات الإعلانات على فيسبوك وإنستجرام', desc:'كورسات رسمية مجانية من ميتا لفهم كيفية بناء حملات تسويقية بسيطة على السوشيال ميديا.', tags:['كورس','إنجليزي'], url:'https://www.facebookblueprint.com/' },
+  { cat:'marketing', source:'Google Digital Garage', title:'أساسيات التسويق عبر الإنترنت', desc:'وحدة كاملة مجانية عن التسويق الرقمي، السيو، ومحركات البحث بشهادة معتمدة من جوجل.', tags:['كورس + شهادة','إنجليزي'], url:'https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing' },
+
+  // ===== لغات =====
+  { cat:'lang', source:'Duolingo', title:'تعلّم لغة جديدة بشكل يومي وممتع', desc:'تطبيق مجاني بالكامل بيعلمك أي لغة بأسلوب لعبة تفاعلية، مناسب جداً للمبتدئين.', tags:['تطبيق','متعدد اللغات'], url:'https://www.duolingo.com/' },
+  { cat:'lang', source:'BBC Learning English', title:'تقوية اللغة الإنجليزية للمحادثة والكتابة', desc:'دروس فيديو وصوت مجانية من هيئة الإذاعة البريطانية، بمستويات مختلفة من المبتدئ للمتقدم.', tags:['فيديو + صوت','إنجليزي'], url:'https://www.bbc.co.uk/learningenglish' },
+  { cat:'lang', source:'Nafham (نفهم)', title:'شرح مبسّط لمناهج ومهارات باللغة العربية', desc:'منصة عربية مجانية موجهة للطلاب، بفيديوهات شرح مبسطة بأسلوب سهل وقريب من الطالب العربي.', tags:['فيديو','عربي'], url:'https://www.nafham.com/' },
+];
+
+/* ============ العرض والفلترة ============ */
+
+const statsRow = document.getElementById('stats-row');
+const catNav = document.getElementById('cat-nav');
+const mainContent = document.getElementById('main-content');
+const searchInput = document.getElementById('search-input');
+const emptyState = document.getElementById('empty-state');
+let activeCat = 'all';
+
+function escapeHtml(str){
+  return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+// الإحصائيات
+statsRow.innerHTML = `
+  <div class="stat"><b>${categories.length}</b>مجالات مهارات</div>
+  <div class="stat"><b>${resources.length}</b>مصدر منسّق</div>
+  <div class="stat"><b>100%</b>مجاني بالكامل</div>
+`;
+
+// أزرار التصنيفات
+catNav.innerHTML = `<button class="cat-btn active" data-cat="all">الكل</button>` +
+  categories.map(c => `<button class="cat-btn" data-cat="${c.id}">${c.name}</button>`).join('');
+
+// بناء الأقسام
+categories.forEach(cat => {
+  const catResources = resources.filter(r => r.cat === cat.id);
+  if (catResources.length === 0) return;
+
+  const section = document.createElement('section');
+  section.className = 'section';
+  section.dataset.section = cat.id;
+
+  section.innerHTML = `
+    <div class="section-head">
+      <h2>${cat.name}</h2>
+      <span class="tag mono">${cat.tag}</span>
+    </div>
+    <p class="section-desc">${cat.desc}</p>
+    <div class="card-grid">
+      ${catResources.map(r => {
+        const searchBlob = `${r.source} ${r.title} ${r.desc} ${cat.name} ${(r.tags||[]).join(' ')}`.toLowerCase();
+        return `
+        <div class="card" data-cat="${r.cat}" data-search="${escapeHtml(searchBlob)}">
+          <span class="card-source mono">${escapeHtml(r.source)}</span>
+          <h3>${escapeHtml(r.title)}</h3>
+          <p>${escapeHtml(r.desc)}</p>
+          <div class="card-tags">${(r.tags||[]).map(t => `<span class="pill">${escapeHtml(t)}</span>`).join('')}</div>
+          <a class="card-link" href="${r.url}" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+        </div>`;
+      }).join('')}
+    </div>
+  `;
+  mainContent.appendChild(section);
+});
+
+function applyFilters(){
+  const query = searchInput.value.trim().toLowerCase();
+  let anyVisible = false;
+
+  document.querySelectorAll('.section').forEach(section => {
+    let sectionHasVisible = false;
+    section.querySelectorAll('.card').forEach(card => {
+      const matchesCat = activeCat === 'all' || card.dataset.cat === activeCat;
+      const matchesSearch = query === '' || card.dataset.search.includes(query);
+      const visible = matchesCat && matchesSearch;
+      card.style.display = visible ? '' : 'none';
+      if (visible){ sectionHasVisible = true; anyVisible = true; }
     });
-
-    emptyState.classList.toggle('show', !anyVisible);
-  }
-
-  catButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      catButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeCat = btn.dataset.cat;
-      applyFilters();
-    });
+    section.style.display = sectionHasVisible ? '' : 'none';
   });
 
-  searchInput.addEventListener('input', applyFilters);
+  emptyState.classList.toggle('show', !anyVisible);
+}
+
+catNav.addEventListener('click', (e) => {
+  const btn = e.target.closest('.cat-btn');
+  if (!btn) return;
+  catNav.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeCat = btn.dataset.cat;
+  applyFilters();
+});
+
+searchInput.addEventListener('input', applyFilters);
 </script>
 
 </body>
