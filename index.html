@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ورشة المهارات | ابنِ مهاراتك مجاناً</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0A1826;
+    --navy-panel:#122942;
+    --navy-line:rgba(255,255,255,0.10);
+    --paper:#0B1B2B;
+    --paper-line:rgba(255,255,255,0.09);
+    --ink:#EAF0F3;
+    --ink-soft:#8FA6BA;
+    --amber:#E8A33D;
+    --amber-deep:#F2BE6D;
+    --pencil-red:#E17A6F;
+    --card-bg:#122942;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    line-height:1.7;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cairo', sans-serif;
+  }
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;}
+
+  /* ===== HERO / BLUEPRINT BOARD ===== */
+  .hero{
+    position:relative;
+    background:
+      linear-gradient(var(--navy-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--navy-line) 1px, transparent 1px),
+      var(--navy-deep);
+    background-size:36px 36px, 36px 36px, cover;
+    color:#EAF0F3;
+    padding:100px 24px 90px;
+    overflow:hidden;
+    border-bottom:3px solid var(--amber);
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(ellipse at 70% 0%, rgba(232,163,61,0.14), transparent 55%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:980px;
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    color:var(--amber);
+    border:1px solid rgba(232,163,61,0.5);
+    padding:6px 14px;
+    border-radius:100px;
+    margin-bottom:28px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:6px;height:6px;
+    background:var(--amber);
+    border-radius:50%;
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(34px, 6vw, 58px);
+    font-weight:900;
+    margin:0 0 20px;
+    line-height:1.25;
+  }
+  .hero h1 span{color:var(--amber);}
+  .hero p{
+    font-size:18px;
+    max-width:640px;
+    color:#C7D6E2;
+    margin:0 0 36px;
+  }
+
+  .search-panel{
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--navy-line);
+    border-radius:var(--radius);
+    padding:22px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    align-items:center;
+    backdrop-filter:blur(2px);
+  }
+  .search-panel .corner-label{
+    font-size:11px;
+    color:#8FA6BA;
+  }
+  #search-input{
+    flex:1;
+    min-width:220px;
+    background:var(--navy-deep);
+    border:1px solid var(--navy-line);
+    color:#EAF0F3;
+    padding:13px 16px;
+    border-radius:var(--radius);
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    font-size:15px;
+  }
+  #search-input:focus{
+    outline:2px solid var(--amber);
+    outline-offset:1px;
+  }
+  #search-input::placeholder{color:#6B8399;}
+
+  .stats-row{
+    display:flex;
+    gap:32px;
+    margin-top:30px;
+    flex-wrap:wrap;
+  }
+  .stat{font-size:13px; color:#8FA6BA;}
+  .stat b{color:#EAF0F3; font-size:20px; font-family:'Cairo',sans-serif; display:block;}
+
+  /* ===== CATEGORY NAV ===== */
+  .cat-nav{
+    max-width:1100px;
+    margin:-34px auto 0;
+    padding:0 24px;
+    position:relative;
+    z-index:2;
+  }
+  .cat-scroll{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    background:var(--card-bg);
+    padding:14px;
+    border-radius:var(--radius);
+    border:1px solid var(--paper-line);
+    box-shadow:0 12px 30px rgba(0,0,0,0.35);
+  }
+  .cat-btn{
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    font-size:14px;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:100px;
+    border:1.5px solid var(--paper-line);
+    background:transparent;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:all .15s ease;
+    white-space:nowrap;
+  }
+  .cat-btn:hover{border-color:var(--amber); color:var(--ink);}
+  .cat-btn.active{
+    background:var(--amber);
+    color:var(--navy-deep);
+    border-color:var(--amber);
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:56px 24px 100px;
+  }
+  .section{
+    margin-bottom:64px;
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:6px;
+    border-bottom:2px solid rgba(232,163,61,0.35);
+    padding-bottom:14px;
+  }
+  .section-head h2{
+    font-size:26px;
+    font-weight:800;
+    margin:0;
+    color:var(--ink);
+  }
+  .section-head .tag{
+    font-size:12px;
+    color:var(--amber);
+    background:rgba(232,163,61,0.14);
+    padding:4px 10px;
+    border-radius:100px;
+  }
+  .section-desc{
+    color:var(--ink-soft);
+    font-size:15px;
+    margin:12px 0 26px;
+    max-width:640px;
+  }
+
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));
+    gap:18px;
+  }
+
+  /* blueprint spec-sheet card */
+  .card{
+    position:relative;
+    background:var(--card-bg);
+    border:1px solid var(--paper-line);
+    border-radius:var(--radius);
+    padding:22px 20px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    border-color:rgba(232,163,61,0.4);
+    box-shadow:0 14px 28px rgba(0,0,0,0.35);
+  }
+  .card::before, .card::after,
+  .card .br-tl, .card .br-br{
+    content:"";
+    position:absolute;
+    width:14px; height:14px;
+    border-color:var(--amber);
+    border-style:solid;
+  }
+  .card::before{ /* top-right corner (RTL) */
+    top:8px; right:8px;
+    border-width:2px 2px 0 0;
+  }
+  .card::after{ /* bottom-left corner */
+    bottom:8px; left:8px;
+    border-width:0 0 2px 2px;
+  }
+  .card-source{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--amber);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .card h3{
+    font-size:17px;
+    margin:0;
+    line-height:1.4;
+    color:var(--ink);
+  }
+  .card p{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin:0;
+    flex:1;
+  }
+  .card-tags{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .pill{
+    font-size:11px;
+    padding:3px 10px;
+    border-radius:100px;
+    background:rgba(255,255,255,0.06);
+    color:var(--ink-soft);
+    border:1px solid var(--paper-line);
+  }
+  .card-link{
+    margin-top:8px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:2px solid var(--amber);
+    padding-bottom:2px;
+    width:fit-content;
+  }
+  .card-link:hover{color:var(--amber);}
+  .card-link svg{width:13px; height:13px;}
+
+  .empty-state{
+    display:none;
+    text-align:center;
+    padding:60px 20px;
+    color:var(--ink-soft);
+  }
+  .empty-state.show{display:block;}
+
+  footer{
+    background:var(--navy-deep);
+    color:#8FA6BA;
+    padding:36px 24px;
+    text-align:center;
+    font-size:13px;
+  }
+  footer strong{color:#EAF0F3;}
+
+  @media (max-width:640px){
+    .hero{padding:70px 18px 60px;}
+    .cat-nav{margin-top:-24px;}
+    main{padding:40px 16px 70px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow mono">مصادر مجانية · منسّقة يدوياً</span>
+    <h1>ابنِ مهاراتك <span>مجاناً</span>، خطوة بخطوة</h1>
+    <p>دليل مبسّط لأفضل المصادر المجانية على الإنترنت لتطوير المهارات الشخصية (Soft Skills) والمهارات الرقمية (Digital Skills) — من تواصل وقيادة، لبرمجة وتسويق رقمي. كل مصدر تم اختياره لأنه مجاني، وواضح، وسهل الفهم.</p>
+
+    <div class="search-panel">
+      <span class="corner-label mono">// ابحث</span>
+      <input id="search-input" type="text" placeholder="دور على مهارة... مثلاً: تواصل، Excel، برمجة، تسويق">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat"><b>6</b>مجالات مهارات</div>
+      <div class="stat"><b>24</b>مصدر منسّق</div>
+      <div class="stat"><b>100%</b>مجاني بالكامل</div>
+    </div>
+  </div>
+</div>
+
+<div class="cat-nav">
+  <div class="cat-scroll" id="cat-nav">
+    <button class="cat-btn active" data-cat="all">الكل</button>
+    <button class="cat-btn" data-cat="comm">تواصل وقيادة</button>
+    <button class="cat-btn" data-cat="think">تفكير وإنتاجية</button>
+    <button class="cat-btn" data-cat="digital">مهارات رقمية أساسية</button>
+    <button class="cat-btn" data-cat="code">برمجة وبيانات</button>
+    <button class="cat-btn" data-cat="marketing">تسويق رقمي</button>
+    <button class="cat-btn" data-cat="lang">لغات</button>
+  </div>
+</div>
+
+<main>
+
+  <section class="section" data-section="comm">
+    <div class="section-head">
+      <h2>مهارات التواصل والقيادة</h2>
+      <span class="tag mono">COMM</span>
+    </div>
+    <p class="section-desc">مهارات هتفيدك في أي مقابلة شخصية أو عمل جماعي أو تقديم على منحة — إزاي تتكلم بثقة، تقنع، وتقود فريق.</p>
+    <div class="card-grid">
+
+      <div class="card" data-search="ted talks خطابة عامة تواصل تقديم" data-cat="comm">
+        <span class="card-source mono">TED Talks</span>
+        <h3>خطب ملهمة عن التواصل والقيادة</h3>
+        <p>مئات الخطب القصيرة المجانية بترجمة عربية، بتعلمك إزاي تقدّم أفكارك بوضوح وثقة أمام جمهور.</p>
+        <div class="card-tags"><span class="pill">فيديو</span><span class="pill">عربي/إنجليزي</span></div>
+        <a class="card-link" href="https://www.ted.com/talks" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="coursera communication skills leadership كورسات مجانية قيادة" data-cat="comm">
+        <span class="card-source mono">Coursera</span>
+        <h3>كورسات مجانية في التواصل والقيادة</h3>
+        <p>تقدر تتفرج على محاضرات كورسات جامعات عالمية مجاناً (Audit) عن مهارات التواصل الفعّال وبناء الفرق.</p>
+        <div class="card-tags"><span class="pill">كورس</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.coursera.org/courses?query=communication%20skills" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="hubspot academy sales communication customer" data-cat="comm">
+        <span class="card-source mono">HubSpot Academy</span>
+        <h3>مهارات التواصل مع العملاء والفرق</h3>
+        <p>كورسات مجانية قصيرة ومعتمدة (شهادات مجانية) عن التواصل الاحترافي وخدمة العملاء والعمل الجماعي.</p>
+        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://academy.hubspot.com/courses" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="toastmasters public speaking خطابة نادي" data-cat="comm">
+        <span class="card-source mono">Toastmasters</span>
+        <h3>موارد مجانية لتعلّم الخطابة</h3>
+        <p>مقالات وأدلة مجانية عن كيفية التغلب على رهبة التحدث أمام الناس، من أشهر منظمة عالمية للخطابة.</p>
+        <div class="card-tags"><span class="pill">مقالات</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.toastmasters.org/resources" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" data-section="think">
+    <div class="section-head">
+      <h2>التفكير النقدي وإدارة الوقت</h2>
+      <span class="tag mono">THINK</span>
+    </div>
+    <p class="section-desc">مهارات تساعدك تنظّم وقتك، تحلل المشاكل، وتاخد قرارات أفضل في الدراسة والحياة.</p>
+    <div class="card-grid">
+
+      <div class="card" data-search="khan academy critical thinking study skills تفكير نقدي" data-cat="think">
+        <span class="card-source mono">Khan Academy</span>
+        <h3>مهارات الدراسة والتفكير النقدي</h3>
+        <p>دروس مجانية بالكامل (فيديو + تمارين) عن أساليب الدراسة الفعالة وحل المشكلات خطوة بخطوة.</p>
+        <div class="card-tags"><span class="pill">فيديو + تمارين</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.khanacademy.org/college-careers-more/college-admissions" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="edx critical thinking problem solving free course" data-cat="think">
+        <span class="card-source mono">edX</span>
+        <h3>كورسات تفكير نقدي وحل مشكلات</h3>
+        <p>كورسات من جامعات عالمية زي MIT وHarvard، متاحة للمشاهدة مجاناً بدون شهادة.</p>
+        <div class="card-tags"><span class="pill">كورس</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.edx.org/learn/critical-thinking-skills" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="notion templates time management إدارة وقت جدول" data-cat="think">
+        <span class="card-source mono">Notion</span>
+        <h3>قوالب جاهزة لتنظيم الوقت والمهام</h3>
+        <p>قوالب مجانية جاهزة الاستخدام لتنظيم جدولك الدراسي، مهامك اليومية، وأهدافك على المدى الطويل.</p>
+        <div class="card-tags"><span class="pill">أداة</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.notion.com/templates/category/education" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="rwaq رواق كورسات عربية تفكير مهارات" data-cat="think">
+        <span class="card-source mono">رواق (Rwaq)</span>
+        <h3>كورسات عربية مجانية بشهادات</h3>
+        <p>منصة عربية مجانية بالكامل فيها كورسات عن التفكير والتطوير الذاتي بشرح مبسّط باللهجة الفصحى.</p>
+        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">عربي</span></div>
+        <a class="card-link" href="https://www.rwaq.org/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" data-section="digital">
+    <div class="section-head">
+      <h2>المهارات الرقمية الأساسية</h2>
+      <span class="tag mono">DIGITAL</span>
+    </div>
+    <p class="section-desc">أدوات هتحتاجها في أي شغل أو دراسة: أوفيس، تصميم، وأساسيات التعامل مع الإنترنت باحترافية.</p>
+    <div class="card-grid">
+
+      <div class="card" data-search="google digital garage مهارات رقمية اساسية مجاني" data-cat="digital">
+        <span class="card-source mono">Google Digital Garage</span>
+        <h3>أساسيات المهارات الرقمية</h3>
+        <p>كورسات مجانية من جوجل مع شهادات معتمدة، تغطي أساسيات العمل الرقمي والإنتاجية أونلاين.</p>
+        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://learndigital.withgoogle.com/digitalgarage" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="microsoft learn excel word office مايكروسوفت" data-cat="digital">
+        <span class="card-source mono">Microsoft Learn</span>
+        <h3>احتراف Excel وWord وPowerPoint</h3>
+        <p>دروس رسمية مجانية من مايكروسوفت لتعلم برامج الأوفيس من الصفر بشكل عملي ومنظم.</p>
+        <div class="card-tags"><span class="pill">دروس</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://learn.microsoft.com/en-us/training/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="canva design school تصميم جرافيك مجاني" data-cat="digital">
+        <span class="card-source mono">Canva Design School</span>
+        <h3>أساسيات التصميم الجرافيكي</h3>
+        <p>دروس مجانية وبسيطة عن مبادئ التصميم، الألوان، والخطوط — مفيدة جداً لعمل بروفايل أو بوستر احترافي.</p>
+        <div class="card-tags"><span class="pill">دروس + فيديو</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.canva.com/designschool/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="edraak ادراك منصة عربية مجانية مهارات رقمية" data-cat="digital">
+        <span class="card-source mono">إدراك (Edraak)</span>
+        <h3>كورسات عربية في المهارات الرقمية</h3>
+        <p>منصة عربية مجانية بالكامل، فيها مسارات مخصصة لمهارات القرن 21 والمهارات الرقمية للطلاب.</p>
+        <div class="card-tags"><span class="pill">كورس</span><span class="pill">عربي</span></div>
+        <a class="card-link" href="https://www.edraak.org/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" data-section="code">
+    <div class="section-head">
+      <h2>البرمجة وتحليل البيانات</h2>
+      <span class="tag mono">CODE</span>
+    </div>
+    <p class="section-desc">لو حابب تدخل مجال التكنولوجيا، دي أشهر المصادر المجانية اللي بيبدأ بيها آلاف المبرمجين.</p>
+    <div class="card-grid">
+
+      <div class="card" data-search="freecodecamp برمجة مجاني كود javascript python" data-cat="code">
+        <span class="card-source mono">freeCodeCamp</span>
+        <h3>تعلّم البرمجة من الصفر مجاناً</h3>
+        <p>منهج كامل ومجاني 100% لتعلم تطوير المواقع، بايثون، وهياكل البيانات، مع شهادات مجانية.</p>
+        <div class="card-tags"><span class="pill">منهج كامل</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.freecodecamp.org/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="kaggle learn data analysis python تحليل بيانات" data-cat="code">
+        <span class="card-source mono">Kaggle Learn</span>
+        <h3>تحليل البيانات وتعلّم الآلة</h3>
+        <p>دروس تفاعلية قصيرة ومجانية عن Python وتحليل البيانات، بتطبيق عملي مباشر داخل المتصفح.</p>
+        <div class="card-tags"><span class="pill">دروس تفاعلية</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.kaggle.com/learn" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="w3schools html css javascript تعلم برمجة مواقع" data-cat="code">
+        <span class="card-source mono">W3Schools</span>
+        <h3>مرجع سريع لتعلّم HTML وCSS وJS</h3>
+        <p>مرجع مجاني وسهل لأي حد عايز يفهم أساسيات بناء المواقع خطوة بخطوة مع أمثلة تفاعلية.</p>
+        <div class="card-tags"><span class="pill">مرجع + تجربة مباشرة</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.w3schools.com/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" data-section="marketing">
+    <div class="section-head">
+      <h2>التسويق الرقمي ووسائل التواصل</h2>
+      <span class="tag mono">MARKETING</span>
+    </div>
+    <p class="section-desc">مهارات مطلوبة جداً في سوق الشغل: إزاي تسوّق لفكرة أو مشروع أو نفسك على السوشيال ميديا.</p>
+    <div class="card-grid">
+
+      <div class="card" data-search="hubspot marketing digital تسويق رقمي شهادة مجانية" data-cat="marketing">
+        <span class="card-source mono">HubSpot Academy</span>
+        <h3>شهادة مجانية في التسويق الرقمي</h3>
+        <p>كورس شامل ومجاني عن أساسيات التسويق الرقمي وصناعة المحتوى، بشهادة معتمدة عند الانتهاء.</p>
+        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://academy.hubspot.com/courses/digital-marketing" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="meta blueprint facebook instagram ads تسويق" data-cat="marketing">
+        <span class="card-source mono">Meta Blueprint</span>
+        <h3>أساسيات الإعلانات على فيسبوك وإنستجرام</h3>
+        <p>كورسات رسمية مجانية من ميتا لفهم كيفية بناء حملات تسويقية بسيطة على السوشيال ميديا.</p>
+        <div class="card-tags"><span class="pill">كورس</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.facebookblueprint.com/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="google digital garage marketing تسويق جوجل" data-cat="marketing">
+        <span class="card-source mono">Google Digital Garage</span>
+        <h3>أساسيات التسويق عبر الإنترنت</h3>
+        <p>وحدة كاملة مجانية عن التسويق الرقمي، السيو، ومحركات البحث بشهادة معتمدة من جوجل.</p>
+        <div class="card-tags"><span class="pill">كورس + شهادة</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" data-section="lang">
+    <div class="section-head">
+      <h2>اللغات</h2>
+      <span class="tag mono">LANG</span>
+    </div>
+    <p class="section-desc">اللغة نفسها مهارة أساسية لأي منحة أو فرصة عمل — دي أفضل المصادر المجانية لتقويتها.</p>
+    <div class="card-grid">
+
+      <div class="card" data-search="duolingo تعلم لغة انجليزي مجاني تطبيق" data-cat="lang">
+        <span class="card-source mono">Duolingo</span>
+        <h3>تعلّم لغة جديدة بشكل يومي وممتع</h3>
+        <p>تطبيق مجاني بالكامل بيعلمك أي لغة بأسلوب لعبة تفاعلية، مناسب جداً للمبتدئين.</p>
+        <div class="card-tags"><span class="pill">تطبيق</span><span class="pill">متعدد اللغات</span></div>
+        <a class="card-link" href="https://www.duolingo.com/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="bbc learning english تعلم انجليزي مجاني" data-cat="lang">
+        <span class="card-source mono">BBC Learning English</span>
+        <h3>تقوية اللغة الإنجليزية للمحادثة والكتابة</h3>
+        <p>دروس فيديو وصوت مجانية من هيئة الإذاعة البريطانية، بمستويات مختلفة من المبتدئ للمتقدم.</p>
+        <div class="card-tags"><span class="pill">فيديو + صوت</span><span class="pill">إنجليزي</span></div>
+        <a class="card-link" href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+      <div class="card" data-search="almentor المنتور دورات عربية تطوير ذات" data-cat="lang">
+        <span class="card-source mono">Nafham (نفهم)</span>
+        <h3>شرح مبسّط لمناهج ومهارات باللغة العربية</h3>
+        <p>منصة عربية مجانية موجهة للطلاب، بفيديوهات شرح مبسطة بأسلوب سهل وقريب من الطالب العربي.</p>
+        <div class="card-tags"><span class="pill">فيديو</span><span class="pill">عربي</span></div>
+        <a class="card-link" href="https://www.nafham.com/" target="_blank" rel="noopener">زيارة المصدر ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="empty-state" id="empty-state">
+    <p>مفيش نتايج مطابقة. جرّب كلمة تانية أو دوس على "الكل".</p>
+  </div>
+
+</main>
+
+<footer>
+  <p><strong>ورشة المهارات</strong> — دليل بيربطك بمصادر مجانية موجودة بالفعل على الإنترنت، من مقدمي محتوى موثوقين. الموقع لا يستضيف أي محتوى محمي بحقوق نشر، وكل رابط بيوديك مباشرة لمصدره الأصلي.</p>
+</footer>
+
+<script>
+  const catButtons = document.querySelectorAll('.cat-btn');
+  const cards = document.querySelectorAll('.card');
+  const sections = document.querySelectorAll('.section');
+  const searchInput = document.getElementById('search-input');
+  const emptyState = document.getElementById('empty-state');
+  let activeCat = 'all';
+
+  function applyFilters(){
+    const query = searchInput.value.trim().toLowerCase();
+    let anyVisible = false;
+
+    sections.forEach(section => {
+      let sectionHasVisible = false;
+      section.querySelectorAll('.card').forEach(card => {
+        const matchesCat = activeCat === 'all' || card.dataset.cat === activeCat;
+        const matchesSearch = query === '' || card.dataset.search.toLowerCase().includes(query) || card.querySelector('h3').textContent.toLowerCase().includes(query);
+        const visible = matchesCat && matchesSearch;
+        card.style.display = visible ? '' : 'none';
+        if (visible){ sectionHasVisible = true; anyVisible = true; }
+      });
+      section.style.display = sectionHasVisible ? '' : 'none';
+    });
+
+    emptyState.classList.toggle('show', !anyVisible);
+  }
+
+  catButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      catButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCat = btn.dataset.cat;
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+</script>
+
+</body>
+</html>
